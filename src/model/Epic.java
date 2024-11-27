@@ -6,11 +6,11 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Epic extends Task{
 
     private final List<Integer> subTasksIds = new ArrayList<>();
+    private Duration duration;
     private final LocalDateTime endTime;
 
     public Epic(String name, String description, LocalDateTime endTime) {
@@ -28,19 +28,19 @@ public class Epic extends Task{
         this.endTime = endTime;
     }
 
-    public Epic(String name, String description, Status status, Duration duration, LocalDateTime startTime, LocalDateTime endTime, LocalDateTime endTime1) {
+    public Epic(String name, String description, Status status, Duration duration, LocalDateTime startTime, LocalDateTime endTime) {
         super(name, description,status, duration, startTime,endTime);
-        this.endTime = endTime1;
+        this.endTime = getEndTime();
     }
 
     public Epic(String name, String description, Duration duration, LocalDateTime startTime, LocalDateTime endTime) {
         super(name, description, duration, startTime);
-        this.endTime = endTime;
+        this.endTime = getEndTime();
     }
 
     public Epic(int id, String name, String description, Status status, Duration duration, LocalDateTime startTime, LocalDateTime endTime) {
         super(id, name, description, status, duration, startTime);
-        this.endTime = endTime;
+        this.endTime = getEndTime();
     }
 
 
