@@ -114,8 +114,8 @@ public class Task {
         this.startTime = deadline;
     }
 
-    public LocalDateTime getEndTime(){
-        if(startTime == null || duration == null){
+    public LocalDateTime getEndTime() {
+        if(startTime == null || duration == null) {
             return null;
         }
         return startTime.plus(duration);
