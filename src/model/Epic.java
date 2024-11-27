@@ -10,39 +10,11 @@ import java.util.List;
 public class Epic extends Task {
 
     private final List<Integer> subTasksIds = new ArrayList<>();
-    private Duration duration;
-    private final LocalDateTime endTime;
 
-    public Epic(String name, String description, LocalDateTime endTime) {
-        super(name, description);
-        this.endTime = endTime;
+    public Epic(int id, String name, String description, Status status, Duration duration, LocalDateTime startTime) {
+        super(id, name, description, status, duration,startTime);
+        this.endTime = startTime.plus(duration);
     }
-
-    public Epic(int id, String name, String description, LocalDateTime endTime) {
-        super(id, name, description);
-        this.endTime = endTime;
-    }
-
-    public Epic(int id, String name, String description, Status status, LocalDateTime endTime) {
-        super(id, name, description, status);
-        this.endTime = endTime;
-    }
-
-    public Epic(String name, String description, Status status, Duration duration, LocalDateTime startTime, LocalDateTime endTime) {
-        super(name, description,status, duration, startTime,endTime);
-        this.endTime = getEndTime();
-    }
-
-    public Epic(String name, String description, Duration duration, LocalDateTime startTime, LocalDateTime endTime) {
-        super(name, description, duration, startTime);
-        this.endTime = getEndTime();
-    }
-
-    public Epic(int id, String name, String description, Status status, Duration duration, LocalDateTime startTime, LocalDateTime endTime) {
-        super(id, name, description, status, duration, startTime);
-        this.endTime = getEndTime();
-    }
-
 
     public List<Integer> getSubTasks() {
         return new ArrayList<>(subTasksIds);
@@ -68,8 +40,8 @@ public class Epic extends Task {
                 ", description='" + getDescription() + '\'' +
                 ", status=" + getStatus() +
                 ", subTasksIds=" + subTasksIds +
-                ", endTime=" + endTime +
-                ", startTime=" + startTime +
+                ", startTime=" + endTime +
+                ", endTime=" + startTime +
                 ", duration=" + getDuration() +
                 '}';
     }

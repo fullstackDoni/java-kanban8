@@ -9,61 +9,29 @@ import java.util.Objects;
 public class Task {
     protected int id;
     protected String name;
-    protected Status status;
     protected String description;
+    protected Status status;
     protected Duration duration;
     protected LocalDateTime startTime;
     protected LocalDateTime endTime;
 
-    public Task(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
-
-    public Task(int id, String name, String description) {
-        this.name = name;
-        this.description = description;
-        this.id = id;
-    }
-
-    public Task(int id, String name, String description, Status status) {
+    public Task(int id, String name,String description, Status status,Duration duration,LocalDateTime startTime) {
         this.id = id;
         this.name = name;
-        this.description = description;
         this.status = status;
-    }
-
-    public Task(String name, String description, Duration duration, LocalDateTime startTime) {
-        this.name = name;
         this.description = description;
         this.duration = duration;
-        this.startTime = startTime;
-    }
-
-    public Task(String name, String description, Status status,Duration duration, LocalDateTime startTime,LocalDateTime endTime) {
-        this.name = name;
-        this.description = description;
-        this.status = status;
-        this.duration = duration;
-        this.startTime = startTime;
+        this.startTime = LocalDateTime.now();
         this.endTime = startTime.plus(duration);
     }
 
-    public Task(String name, String description, Status status, Duration duration, LocalDateTime startTime) {
+    public Task(String name, String description, Status status, Duration duration) {
         this.name = name;
-        this.description = description;
         this.status = status;
-        this.duration = duration;
-        this.startTime = startTime;
-    }
-
-    public Task(int id, String name, String description, Status status, Duration duration, LocalDateTime startTime) {
-        this.id = id;
-        this.name = name;
         this.description = description;
-        this.status = status;
         this.duration = duration;
-        this.startTime = startTime;
+        this.startTime = LocalDateTime.now();
+        this.endTime = startTime.plus(duration);
     }
 
     public int getId() {
