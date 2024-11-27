@@ -158,7 +158,6 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
                 throw new IllegalArgumentException("Неизвестный тип задачи: " + type);
         }
     }
-    }
 
     public static FileBackedTaskManager loadFromFile(File file) {
         FileBackedTaskManager manager = new FileBackedTaskManager(file);
