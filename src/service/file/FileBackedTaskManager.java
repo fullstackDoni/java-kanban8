@@ -133,9 +133,9 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
 
     private Task fromCSV(String[] fields) {
         int id = Integer.parseInt(fields[0]);
-        TaskType type = TaskType.valueOf(fields[1].toUpperCase());
-        String name = fields[2];
-        String description = fields[5];
+        TaskType type = TaskType.valueOf(fields[1]);
+        String name = fields[1];
+        String description = fields[2];
         Status status = Status.valueOf(fields[3]);
         Duration duration = Duration.parse(fields[4]);
         LocalDateTime startTime = LocalDateTime.parse(fields[5]);
@@ -144,7 +144,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
 
         switch (type) {
             case TASK:
-                return new Task(id, name, description, status,duration,startTime);
+                return new Task(id,name,description,status,duration,startTime);
             case EPIC:
                 return new Epic(id,name,description,status,startTime);
             case SUBTASK:
