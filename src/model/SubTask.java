@@ -5,7 +5,7 @@ import model.enums.Status;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class SubTask extends Task{
+public class SubTask extends Task {
     private final int epicId;
 
     public SubTask(String name, String description, int epicId) {
