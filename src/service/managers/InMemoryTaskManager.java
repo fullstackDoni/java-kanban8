@@ -10,7 +10,7 @@ import service.Managers;
 import java.time.LocalDateTime;
 import java.util.*;
 
-public class InMemoryTaskManager implements TaskManager{
+public class InMemoryTaskManager implements TaskManager {
 
     protected final Map<Integer, Task> tasks = new HashMap<>();
     protected final Map<Integer, Epic> epics = new HashMap<>();
