@@ -265,9 +265,9 @@ public class InMemoryTaskManager implements TaskManager{
                 });
     }
 
-    private void checkTaskTime(Task task){
-        for(Task t: prioritizedTasks){
-            if(t.getId() == task.getId()){
+    private void checkTaskTime(Task task) {
+        for(Task t: prioritizedTasks) {
+            if(t.getId() == task.getId()) {
                 continue;
             }
             throw new ValidationException("Пересечение с задачей");
